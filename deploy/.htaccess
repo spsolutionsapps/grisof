@@ -1,0 +1,32 @@
+# Configuración para GoDaddy cPanel
+# Permite acceso a archivos PHP y configuración básica
+
+# Habilitar rewrite engine
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirigir todas las rutas a index.html para React Router (si es necesario)
+    # RewriteBase /
+    # RewriteRule ^index\.html$ - [L]
+    # RewriteCond %{REQUEST_FILENAME} !-f
+    # RewriteCond %{REQUEST_FILENAME} !-d
+    # RewriteRule . /index.html [L]
+</IfModule>
+
+# Configuración de seguridad
+<IfModule mod_headers.c>
+    # Proteger archivos de configuración
+    <FilesMatch "^(config\.php|\.htaccess)$">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+</IfModule>
+
+# Configuración PHP
+<IfModule mod_php7.c>
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+</IfModule>
+

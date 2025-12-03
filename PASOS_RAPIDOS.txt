@@ -1,0 +1,77 @@
+═══════════════════════════════════════════════════════════════
+  GUÍA RÁPIDA - DESPLIEGUE A GODADDY CPANEL
+═══════════════════════════════════════════════════════════════
+
+📌 PASO 1: CREAR BASE DE DATOS
+────────────────────────────────
+1. Entra a cPanel de GoDaddy
+2. Ve a "MySQL Databases"
+3. Crea una base de datos → Anota el nombre completo
+4. Crea un usuario MySQL → Anota el nombre completo y contraseña
+5. Asigna el usuario a la base de datos con "ALL PRIVILEGES"
+
+📌 PASO 2: CREAR LA TABLA
+───────────────────────────
+1. Ve a "phpMyAdmin" en cPanel
+2. Selecciona tu base de datos (menú izquierdo)
+3. Ve a la pestaña "SQL"
+4. Abre el archivo "database.sql" y copia TODO su contenido
+5. Pégalo en phpMyAdmin y haz clic en "Go"
+6. Verifica que aparezca la tabla "consultas"
+
+📌 PASO 3: CONFIGURAR ARCHIVOS
+────────────────────────────────
+1. Abre "deploy/config.php" con Notepad o VS Code
+2. Reemplaza estos valores con tus datos REALES:
+   
+   DB_NAME: 'tuusuario_consultas'  ← Tu nombre de BD completo
+   DB_USER: 'tuusuario_admin_db'   ← Tu usuario MySQL completo  
+   DB_PASS: 'TuContraseña123'      ← Tu contraseña MySQL
+
+3. Abre "deploy/admin/login.php"
+4. Cambia estas líneas (alrededor de línea 12-13):
+   
+   $admin_username = 'tu_usuario';     ← Elige un usuario
+   $admin_password = 'TuPass123';      ← Elige una contraseña segura
+
+5. Guarda ambos archivos
+
+📌 PASO 4: SUBIR ARCHIVOS
+──────────────────────────
+1. Ve a "File Manager" en cPanel
+2. Entra a la carpeta "public_html"
+3. Sube TODOS los archivos de la carpeta "deploy"
+   (Puedes comprimir en ZIP y subir todo junto, luego extraer)
+
+4. Verifica que la estructura sea:
+   public_html/
+   ├── index.html
+   ├── contacto.php
+   ├── config.php
+   ├── assets/
+   └── admin/
+
+📌 PASO 5: PROBAR
+──────────────────
+1. Visita: tudominio.com
+2. Prueba el formulario de contacto
+3. Ve a: tudominio.com/admin/
+4. Ingresa las credenciales que pusiste en login.php
+
+═══════════════════════════════════════════════════════════════
+  ¿PROBLEMAS?
+═══════════════════════════════════════════════════════════════
+
+❌ Error de conexión a BD
+   → Verifica config.php tiene los datos correctos
+
+❌ No puedo entrar al admin
+   → Verifica admin/login.php tiene las credenciales correctas
+   → Verifica que la carpeta admin/ esté en public_html/
+
+❌ El formulario no envía
+   → Verifica que contacto.php esté en public_html/
+   → Verifica que la tabla "consultas" exista en phpMyAdmin
+
+═══════════════════════════════════════════════════════════════
+

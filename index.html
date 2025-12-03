@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grisfo - Construcción</title>
+    <link rel="stylesheet" href="./assets/index-y3-jrHkF.css">
+    <style>
+        /* Estilos adicionales para funcionalidades específicas */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .faq-answer {
+            transition: all 0.5s ease-in-out;
+        }
+        .faq-answer.hidden {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transform: translateY(-8px);
+        }
+        .faq-answer.visible {
+            opacity: 1;
+            max-height: 500px;
+            transform: translateY(0);
+        }
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.hidden {
+            transform: translateX(-100%);
+        }
+        .mobile-menu.visible {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="flex items-center justify-between fixed z-50 top-0 w-full px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-slate-200 bg-white/40 backdrop-blur">
+        <a href="/">
+            <img class="h-9 md:h-9.5 w-auto shrink-0" src="./assets/logo.svg" alt="Logo" width="140" height="40" fetchpriority="high" />
+        </a>
+        <div class="hidden items-center md:gap-8 lg:gap-9 font-medium md:flex lg:pl-20">
+            <a href="/" class="hover:text-indigo-600">Home</a>
+            <a href="#features" class="hover:text-indigo-600">Servicios</a>
+            <a href="#pricing" class="hover:text-indigo-600">Precios</a>
+            <a href="#faq" class="hover:text-indigo-600">Preguntas</a>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="mobile-menu hidden fixed inset-0 flex flex-col items-center justify-center gap-6 text-lg font-medium bg-white/40 backdrop-blur-md md:hidden">
+            <a href="/" class="hover:text-indigo-600">Home</a>
+            <a href="#features" class="hover:text-indigo-600">Servicios</a>
+            <a href="#pricing" class="hover:text-indigo-600">Precios</a>
+            <a href="#faq" class="hover:text-indigo-600">Preguntas</a>
+            <button id="closeMobileMenu" class="aspect-square size-10 p-1 items-center justify-center bg-indigo-600 hover:bg-indigo-700 transition text-white rounded-md flex">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="hidden md:block hover:bg-slate-100 transition px-4 py-2 border border-indigo-600 rounded-md">
+                Iniciar sesión
+            </button>
+            <button class="hidden md:block px-4 py-2 bg-indigo-600 hover:bg-indigo-700 transition text-white rounded-md">
+                Solicitar presupuesto
+            </button>
+            <button id="openMobileMenu" class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="flex flex-col items-center justify-center text-center bg-[url('./assets/hero-section-dot-image.png')] bg-cover bg-no-repeat pt-44">
+        <a href="#" class="flex items-center gap-2 rounded-full p-1 pr-3 mt-44 text-indigo-600 bg-indigo-50">
+            <span class="bg-indigo-600 text-white text-xs px-3.5 py-1 rounded-full">
+                NUEVO
+            </span>
+            <p class="flex items-center gap-1">
+                <span>Presupuesto sin compromiso </span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </p>
+        </a>
+        <h1 class="text-[40px]/12 md:text-[54px]/16 font-semibold max-w-3xl mt-4">
+            Construimos{" "}
+            <span class="bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">
+                tus sueños
+            </span>
+            {" "}en realidad
+        </h1>
+        <p class="text-base text-slate-600 max-w-lg mt-5">Grisfo es tu empresa de construcción de confianza. Proyectos de calidad, cumplimiento garantizado y atención personalizada en cada obra.</p>
+        <div class="flex items-center gap-4 mt-6">
+            <button class="bg-indigo-600 hover:bg-indigo-700 transition px-8 py-3 rounded-md text-white">
+                <span>Solicitar presupuesto</span>
+            </button>
+            <button class="flex items-center justify-center gap-2 border border-indigo-400 px-5 py-3 rounded-md text-indigo-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-6.136a2 2 0 0 0-2.864.037L.5 8.5m7.5 7.5 2.135 2.136a2 2 0 0 0 2.864-.037L21.5 8.5m-6-6 2.135 2.136a2 2 0 0 1 .037 2.864l-6.136 6.135a2 2 0 0 1-2.872 0L8.5 7.5m-6-6L4.636 3.636a2 2 0 0 0-.037 2.864L8.5 10.5"/></svg>
+                <span>Ver proyectos</span>
+            </button>
+        </div>
+        <img class="w-full max-w-xl mt-16 drop-shadow-2xl drop-shadow-blue-500/15 mx-auto" src="./assets/hero-section-card-image.svg" alt="Hero Section Card Image" width="1000" height="500" fetchpriority="high" />
+    </div>
+
+    <!-- Trusted Companies -->
+    <div>
+        <h3 class="text-base text-center text-slate-400 mt-28 pb-14 font-medium">
+            Empresas que confían en nosotros —
+        </h3>
+        <div class="marquee-container max-w-5xl mx-auto">
+            <div class="marquee-content">
+                <img class="mx-11" src="./assets/companies-logo/framer.svg" alt="Framer" width="100" height="100" />
+                <img class="mx-11" src="./assets/companies-logo/huawei.svg" alt="Huawei" width="100" height="100" />
+                <img class="mx-11" src="./assets/companies-logo/instagram.svg" alt="Instagram" width="100" height="100" />
+                <img class="mx-11" src="./assets/companies-logo/microsoft.svg" alt="Microsoft" width="100" height="100" />
+                <img class="mx-11" src="./assets/companies-logo/walmart.svg" alt="Walmart" width="100" height="100" />
+                <img class="mx-11" src="./assets/companies-logo/framer.svg" alt="Framer" width="100" height="100" />
+                <img class="mx-11" src="./assets/companies-logo/huawei.svg" alt="Huawei" width="100" height="100" />
+                <img class="mx-11" src="./assets/companies-logo/instagram.svg" alt="Instagram" width="100" height="100" />
+                <img class="mx-11" src="./assets/companies-logo/microsoft.svg" alt="Microsoft" width="100" height="100" />
+                <img class="mx-11" src="./assets/companies-logo/walmart.svg" alt="Walmart" width="100" height="100" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div id="features">
+        <p class="text-center uppercase font-medium text-indigo-600 mt-28">Servicios</p>
+        <h3 class="text-3xl font-semibold text-center mx-auto mt-2">Nuestros Servicios</h3>
+        <p class="text-sm text-slate-500 text-center mt-4 max-w-lg mx-auto">Ofrecemos una amplia gama de servicios de construcción para hacer realidad tu proyecto. Calidad, profesionalismo y compromiso en cada obra.</p>
+
+        <div class="flex flex-wrap items-center justify-center gap-10 mt-16">
+            <div class="max-w-80 hover:-translate-y-0.5 transition duration-300">
+                <img class="rounded-xl" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/features/image-1.png" alt="Construcción residencial" height="400" width="400" />
+                <h3 class="text-base font-semibold text-slate-700 mt-4">Construcción Residencial</h3>
+                <p class="text-sm text-slate-600 mt-1">Casas, departamentos y viviendas personalizadas. Diseño y construcción de calidad para tu hogar.</p>
+            </div>
+            <div class="max-w-80 hover:-translate-y-0.5 transition duration-300">
+                <img class="rounded-xl" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/features/image-2.png" alt="Construcción comercial" height="400" width="400" />
+                <h3 class="text-base font-semibold text-slate-700 mt-4">Construcción Comercial</h3>
+                <p class="text-sm text-slate-600 mt-1">Edificios comerciales, oficinas y locales. Proyectos que impulsan tu negocio.</p>
+            </div>
+            <div class="max-w-80 hover:-translate-y-0.5 transition duration-300">
+                <img class="rounded-xl" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/features/image-3.png" alt="Remodelaciones" height="400" width="400" />
+                <h3 class="text-base font-semibold text-slate-700 mt-4">Remodelaciones</h3>
+                <p class="text-sm text-slate-600 mt-1">Renovación y mejoras de espacios existentes. Transformamos tu propiedad.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div>
+        <p class="text-center uppercase font-medium text-indigo-600 mt-28">Testimonios</p>
+        <h3 class="text-3xl font-semibold text-center mx-auto mt-2">Lo que dicen nuestros clientes</h3>
+        <p class="text-sm text-slate-500 text-center mt-4 max-w-lg mx-auto">La satisfacción de nuestros clientes es nuestra mejor carta de presentación. Cada proyecto es una oportunidad de superar expectativas.</p>
+
+        <div class="marquee-container max-w-5xl mx-auto mt-11">
+            <div class="marquee-content" style="animation-direction: reverse;">
+                <div class="p-4 rounded-lg mx-4 shadow hover:shadow-lg transition-all duration-200 w-72 shrink-0">
+                    <div class="flex gap-2">
+                        <img class="size-11 rounded-full" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200" alt="Briar Martin" height="50" width="50" />
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-1">
+                                <p>Briar Martin</p>
+                                <svg class="mt-0.5" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.555.72a4 4 0 0 1-.297.24c-.179.12-.38.202-.59.244a4 4 0 0 1-.38.041c-.48.039-.721.058-.922.129a1.63 1.63 0 0 0-.992.992c-.071.2-.09.441-.129.922a4 4 0 0 1-.041.38 1.6 1.6 0 0 1-.245.59 3 3 0 0 1-.239.297c-.313.368-.47.551-.56.743-.213.444-.213.96 0 1.404.09.192.247.375.56.743.125.146.187.219.24.297.12.179.202.38.244.59.018.093.026.189.041.38.039.48.058.721.129.922.163.464.528.829.992.992.2.071.441.09.922.129.191.015.287.023.38.041.21.042.411.125.59.245.078.052.151.114.297.239.368.313.551.47.743.56.444.213.96.213 1.404 0 .192-.09.375-.247.743-.56.146-.125.219-.187.297-.24.179-.12.38-.202.59-.244a4 4 0 0 1 .38-.041c.48-.039.721-.058.922-.129.464-.163.829-.528.992-.992.071-.2.09-.441.129-.922a4 4 0 0 1 .041-.38c.042-.21.125-.411.245-.59.052-.078.114-.151.239-.297.313-.368.47-.551.56-.743.213-.444.213-.96 0-1.404-.09-.192-.247-.375-.56-.743a4 4 0 0 1-.24-.297 1.6 1.6 0 0 1-.244-.59 3 3 0 0 1-.041-.38c-.039-.48-.058-.721-.129-.922a1.63 1.63 0 0 0-.992-.992c-.2-.071-.441-.09-.922-.129a4 4 0 0 1-.38-.041 1.6 1.6 0 0 1-.59-.245A3 3 0 0 1 7.445.72C7.077.407 6.894.25 6.702.16a1.63 1.63 0 0 0-1.404 0c-.192.09-.375.247-.743.56m4.07 3.998a.488.488 0 0 0-.691-.69l-2.91 2.91-.958-.957a.488.488 0 0 0-.69.69l1.302 1.302c.19.191.5.191.69 0z" fill="#2196F3" />
+                                </svg>
+                            </div>
+                            <span class="text-xs text-slate-500">@neilstellar</span>
+                        </div>
+                    </div>
+                    <p class="text-sm pt-4 text-gray-800">Grisfo construyó nuestra casa con excelente calidad y cumpliendo todos los plazos. Totalmente recomendados.</p>
+                </div>
+                <div class="p-4 rounded-lg mx-4 shadow hover:shadow-lg transition-all duration-200 w-72 shrink-0">
+                    <div class="flex gap-2">
+                        <img class="size-11 rounded-full" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200" alt="Avery Johnson" height="50" width="50" />
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-1">
+                                <p>Avery Johnson</p>
+                                <svg class="mt-0.5" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.555.72a4 4 0 0 1-.297.24c-.179.12-.38.202-.59.244a4 4 0 0 1-.38.041c-.48.039-.721.058-.922.129a1.63 1.63 0 0 0-.992.992c-.071.2-.09.441-.129.922a4 4 0 0 1-.041.38 1.6 1.6 0 0 1-.245.59 3 3 0 0 1-.239.297c-.313.368-.47.551-.56.743-.213.444-.213.96 0 1.404.09.192.247.375.56.743.125.146.187.219.24.297.12.179.202.38.244.59.018.093.026.189.041.38.039.48.058.721.129.922.163.464.528.829.992.992.2.071.441.09.922.129.191.015.287.023.38.041.21.042.411.125.59.245.078.052.151.114.297.239.368.313.551.47.743.56.444.213.96.213 1.404 0 .192-.09.375-.247.743-.56.146-.125.219-.187.297-.24.179-.12.38-.202.59-.244a4 4 0 0 1 .38-.041c.48-.039.721-.058.922-.129.464-.163.829-.528.992-.992.071-.2.09-.441.129-.922a4 4 0 0 1 .041-.38c.042-.21.125-.411.245-.59.052-.078.114-.151.239-.297.313-.368.47-.551.56-.743.213-.444.213-.96 0-1.404-.09-.192-.247-.375-.56-.743a4 4 0 0 1-.24-.297 1.6 1.6 0 0 1-.244-.59 3 3 0 0 1-.041-.38c-.039-.48-.058-.721-.129-.922a1.63 1.63 0 0 0-.992-.992c-.2-.071-.441-.09-.922-.129a4 4 0 0 1-.38-.041 1.6 1.6 0 0 1-.59-.245A3 3 0 0 1 7.445.72C7.077.407 6.894.25 6.702.16a1.63 1.63 0 0 0-1.404 0c-.192.09-.375.247-.743.56m4.07 3.998a.488.488 0 0 0-.691-.69l-2.91 2.91-.958-.957a.488.488 0 0 0-.69.69l1.302 1.302c.19.191.5.191.69 0z" fill="#2196F3" />
+                                </svg>
+                            </div>
+                            <span class="text-xs text-slate-500">@averywrites</span>
+                        </div>
+                    </div>
+                    <p class="text-sm pt-4 text-gray-800">Grisfo construyó nuestra casa con excelente calidad y cumpliendo todos los plazos. Totalmente recomendados.</p>
+                </div>
+                <div class="p-4 rounded-lg mx-4 shadow hover:shadow-lg transition-all duration-200 w-72 shrink-0">
+                    <div class="flex gap-2">
+                        <img class="size-11 rounded-full" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&auto=format&fit=crop&q=60" alt="Jordan Lee" height="50" width="50" />
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-1">
+                                <p>Jordan Lee</p>
+                                <svg class="mt-0.5" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.555.72a4 4 0 0 1-.297.24c-.179.12-.38.202-.59.244a4 4 0 0 1-.38.041c-.48.039-.721.058-.922.129a1.63 1.63 0 0 0-.992.992c-.071.2-.09.441-.129.922a4 4 0 0 1-.041.38 1.6 1.6 0 0 1-.245.59 3 3 0 0 1-.239.297c-.313.368-.47.551-.56.743-.213.444-.213.96 0 1.404.09.192.247.375.56.743.125.146.187.219.24.297.12.179.202.38.244.59.018.093.026.189.041.38.039.48.058.721.129.922.163.464.528.829.992.992.2.071.441.09.922.129.191.015.287.023.38.041.21.042.411.125.59.245.078.052.151.114.297.239.368.313.551.47.743.56.444.213.96.213 1.404 0 .192-.09.375-.247.743-.56.146-.125.219-.187.297-.24.179-.12.38-.202.59-.244a4 4 0 0 1 .38-.041c.48-.039.721-.058.922-.129.464-.163.829-.528.992-.992.071-.2.09-.441.129-.922a4 4 0 0 1 .041-.38c.042-.21.125-.411.245-.59.052-.078.114-.151.239-.297.313-.368.47-.551.56-.743.213-.444.213-.96 0-1.404-.09-.192-.247-.375-.56-.743a4 4 0 0 1-.24-.297 1.6 1.6 0 0 1-.244-.59 3 3 0 0 1-.041-.38c-.039-.48-.058-.721-.129-.922a1.63 1.63 0 0 0-.992-.992c-.2-.071-.441-.09-.922-.129a4 4 0 0 1-.38-.041 1.6 1.6 0 0 1-.59-.245A3 3 0 0 1 7.445.72C7.077.407 6.894.25 6.702.16a1.63 1.63 0 0 0-1.404 0c-.192.09-.375.247-.743.56m4.07 3.998a.488.488 0 0 0-.691-.69l-2.91 2.91-.958-.957a.488.488 0 0 0-.69.69l1.302 1.302c.19.191.5.191.69 0z" fill="#2196F3" />
+                                </svg>
+                            </div>
+                            <span class="text-xs text-slate-500">@jordantalks</span>
+                        </div>
+                    </div>
+                    <p class="text-sm pt-4 text-gray-800">Grisfo construyó nuestra casa con excelente calidad y cumpliendo todos los plazos. Totalmente recomendados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing -->
+    <div id="pricing">
+        <p class="text-center uppercase font-medium text-indigo-600 mt-28">Precios</p>
+        <h3 class="text-3xl font-semibold text-center mx-auto mt-2">Nuestros Paquetes</h3>
+        <p class="text-sm text-slate-500 text-center mt-4 max-w-lg mx-auto">Opciones flexibles adaptadas a tu proyecto — desde pequeñas remodelaciones hasta grandes construcciones.</p>
+
+        <div class="flex flex-wrap items-center justify-center gap-6 mt-16">
+            <!-- Basic Plan -->
+            <div class="p-6 rounded-2xl max-w-75 w-full shadow-[0px_4px_26px] shadow-black/6 bg-white">
+                <p>Remodelación Básica</p>
+                <h4 class="text-3xl font-semibold mt-1">Desde $500<span class="font-normal text-sm text-slate-500">/m²</span></h4>
+                <hr class="border-slate-200 my-8" />
+                <div class="space-y-2 text-slate-500">
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Remodelaciones pequeñas</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Hasta 50 m²</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Materiales estándar</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Seguimiento de obra</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Garantía 1 año</span>
+                    </div>
+                </div>
+                <button class="transition w-full py-3 rounded-lg font-medium mt-8 bg-indigo-600 hover:bg-indigo-700 text-white">
+                    <span>Solicitar presupuesto</span>
+                </button>
+            </div>
+            <!-- Pro Plan -->
+            <div class="p-6 rounded-2xl max-w-75 w-full shadow-[0px_4px_26px] shadow-black/6 relative pt-12 bg-gradient-to-b from-indigo-600 to-violet-600">
+                <div class="flex items-center text-xs gap-1 py-1.5 px-2 text-indigo-600 absolute top-4 right-4 rounded bg-white font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-6.136a2 2 0 0 0-2.864.037L.5 8.5m7.5 7.5 2.135 2.136a2 2 0 0 0 2.864-.037L21.5 8.5m-6-6 2.135 2.136a2 2 0 0 1 .037 2.864l-6.136 6.135a2 2 0 0 1-2.872 0L8.5 7.5m-6-6L4.636 3.636a2 2 0 0 0-.037 2.864L8.5 10.5"/></svg>
+                    <p>Más Popular</p>
+                </div>
+                <p class="text-white">Construcción Completa</p>
+                <h4 class="text-3xl font-semibold mt-1 text-white">Desde $800<span class="font-normal text-sm text-white">/m²</span></h4>
+                <hr class="border-slate-200 my-8" />
+                <div class="space-y-2 text-white">
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Construcción desde cero</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Hasta 200 m²</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Materiales premium</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Diseño personalizado</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Supervisión diaria</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Garantía 2 años</span>
+                    </div>
+                </div>
+                <button class="transition w-full py-3 rounded-lg font-medium mt-8 bg-white hover:bg-slate-100 text-slate-800">
+                    <span>Solicitar presupuesto</span>
+                </button>
+            </div>
+            <!-- Enterprise Plan -->
+            <div class="p-6 rounded-2xl max-w-75 w-full shadow-[0px_4px_26px] shadow-black/6 bg-white">
+                <p>Proyectos Empresariales</p>
+                <h4 class="text-3xl font-semibold mt-1">Personalizado</h4>
+                <hr class="border-slate-200 my-8" />
+                <div class="space-y-2 text-slate-500">
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Proyectos ilimitados</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Cualquier tamaño</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Soporte 24/7</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Equipo dedicado</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Garantía extendida</span>
+                    </div>
+                </div>
+                <button class="transition w-full py-3 rounded-lg font-medium mt-8 bg-indigo-600 hover:bg-indigo-700 text-white">
+                    <span>Contactar ventas</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div id="faq" class="max-w-2xl mx-auto flex flex-col items-center justify-center px-4 md:px-0">
+        <p class="text-center uppercase font-medium text-indigo-600 mt-28">Preguntas Frecuentes</p>
+        <h3 class="text-3xl font-semibold text-center mx-auto mt-2">Preguntas frecuentes</h3>
+        <p class="text-sm text-slate-500 text-center mt-4 max-w-lg mx-auto">Resolvemos tus dudas sobre nuestros servicios de construcción, procesos y garantías.</p>
+        <div class="mt-8 w-full">
+            <div class="faq-item border-b border-slate-200 py-4 cursor-pointer w-full" data-index="0">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-base font-medium">¿Qué servicios de construcción ofrecen?</h3>
+                    <svg class="faq-icon transition-all duration-500 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+                <p class="faq-answer hidden text-sm text-slate-500 transition-all duration-500 ease-in-out max-w-xl pt-4">Ofrecemos construcción residencial, comercial, remodelaciones, ampliaciones y proyectos personalizados. Trabajamos desde pequeñas mejoras hasta grandes obras.</p>
+            </div>
+            <div class="faq-item border-b border-slate-200 py-4 cursor-pointer w-full" data-index="1">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-base font-medium">¿Ofrecen presupuesto gratuito?</h3>
+                    <svg class="faq-icon transition-all duration-500 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+                <p class="faq-answer hidden text-sm text-slate-500 transition-all duration-500 ease-in-out max-w-xl pt-4">Sí, ofrecemos presupuesto sin compromiso. Realizamos una visita al sitio para evaluar tu proyecto y te entregamos un presupuesto detallado sin costo alguno.</p>
+            </div>
+            <div class="faq-item border-b border-slate-200 py-4 cursor-pointer w-full" data-index="2">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-base font-medium">¿Puedo modificar el proyecto durante la construcción?</h3>
+                    <svg class="faq-icon transition-all duration-500 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+                <p class="faq-answer hidden text-sm text-slate-500 transition-all duration-500 ease-in-out max-w-xl pt-4">Sí, entendemos que pueden surgir cambios. Trabajamos contigo para adaptar el proyecto según tus necesidades, ajustando el presupuesto y los plazos de manera transparente.</p>
+            </div>
+            <div class="faq-item border-b border-slate-200 py-4 cursor-pointer w-full" data-index="3">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-base font-medium">¿Qué garantías ofrecen?</h3>
+                    <svg class="faq-icon transition-all duration-500 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+                <p class="faq-answer hidden text-sm text-slate-500 transition-all duration-500 ease-in-out max-w-xl pt-4">Ofrecemos garantía en todos nuestros trabajos. Para remodelaciones básicas es de 1 año y para construcciones completas de 2 años. Todos nuestros materiales y mano de obra están garantizados.</p>
+            </div>
+            <div class="faq-item border-b border-slate-200 py-4 cursor-pointer w-full" data-index="4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-base font-medium">¿Cómo puedo contactarlos?</h3>
+                    <svg class="faq-icon transition-all duration-500 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+                <p class="faq-answer hidden text-sm text-slate-500 transition-all duration-500 ease-in-out max-w-xl pt-4">Puedes contactarnos a través del formulario en esta página, por email a info.grisof@gmail.com o por teléfono. Estamos disponibles para responder todas tus consultas y agendar una visita sin compromiso.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form Section -->
+    <div class="border-y border-dashed border-slate-200 w-full max-w-5xl mx-auto mt-28 px-6 md:px-16">
+        <div class="flex flex-col md:flex-row text-center md:text-left items-center justify-between gap-8 px-3 md:px-10 border-x border-dashed border-slate-200 py-20 -mt-10 -mb-10 w-full">
+            <div class="flex-1">
+                <h2 class="text-2xl font-semibold mb-4">¿Tienes alguna consulta?</h2>
+                <p class="text-lg text-slate-600 max-w-md">Contáctanos y te responderemos a la brevedad.</p>
+            </div>
+            <form id="contactForm" class="flex-1 w-full max-w-md space-y-4">
+                <div>
+                    <input
+                        type="text"
+                        name="nombre"
+                        id="nombre"
+                        placeholder="Nombre completo"
+                        required
+                        class="w-full px-4 py-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
+                    />
+                </div>
+                <div>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Email"
+                        required
+                        class="w-full px-4 py-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
+                    />
+                </div>
+                <div>
+                    <input
+                        type="tel"
+                        name="telefono"
+                        id="telefono"
+                        placeholder="Teléfono (opcional)"
+                        class="w-full px-4 py-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
+                    />
+                </div>
+                <div>
+                    <textarea
+                        name="mensaje"
+                        id="mensaje"
+                        placeholder="Mensaje"
+                        required
+                        rows="4"
+                        class="w-full px-4 py-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent resize-none"
+                    ></textarea>
+                </div>
+                <div id="formMessage" class="hidden p-3 rounded-md"></div>
+                <button
+                    type="submit"
+                    id="submitBtn"
+                    class="w-full flex items-center justify-center gap-2 rounded-md py-3 px-5 bg-indigo-600 hover:bg-indigo-700 transition text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                    <span id="submitText">Enviar mensaje</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="px-6 md:px-16 lg:px-24 xl:px-32 mt-40 w-full text-slate-500">
+        <div class="flex flex-col md:flex-row justify-between w-full gap-10 border-b border-gray-200 pb-6">
+            <div class="md:max-w-114">
+                <img class="h-9 md:h-9.5 w-auto shrink-0" src="./assets/logo.svg" alt="Logo" width="140" height="40" fetchpriority="high" />
+                <p class="mt-6">
+                    Grisfo es tu empresa de construcción de confianza. Con años de experiencia, construimos proyectos de calidad que superan expectativas. Desde pequeñas remodelaciones hasta grandes obras, estamos comprometidos con tu éxito.
+                </p>
+            </div>
+            <div class="flex-1 flex items-start md:justify-end gap-20">
+                <div>
+                    <h2 class="font-semibold mb-5 text-gray-800">Company</h2>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="hover:text-indigo-600">Home</a></li>
+                        <li><a href="#features" class="hover:text-indigo-600">Servicios</a></li>
+                        <li><a href="#pricing" class="hover:text-indigo-600">Precios</a></li>
+                        <li><a href="#faq" class="hover:text-indigo-600">Preguntas</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="font-semibold mb-5 text-gray-800">Get in touch</h2>
+                    <div class="space-y-2">
+                        <p>+54 11 1234-5678</p>
+                        <p>info.grisof@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="pt-4 text-center pb-5">
+            Copyright 2024 © Grisfo. Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const openMobileMenu = document.getElementById('openMobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        openMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('visible');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('visible');
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const index = item.dataset.index;
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.faq-icon');
+                const isOpen = !answer.classList.contains('hidden');
+
+                // Close all FAQs
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    const faqAnswer = faq.querySelector('.faq-answer');
+                    const faqIcon = faq.querySelector('.faq-icon');
+                    faqAnswer.classList.remove('visible');
+                    faqAnswer.classList.add('hidden');
+                    faqIcon.style.transform = 'rotate(0deg)';
+                });
+
+                // Toggle clicked FAQ
+                if (isOpen) {
+                    answer.classList.remove('visible');
+                    answer.classList.add('hidden');
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    answer.classList.remove('hidden');
+                    answer.classList.add('visible');
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitText = document.getElementById('submitText');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(contactForm);
+            submitBtn.disabled = true;
+            submitText.textContent = 'Enviando...';
+            formMessage.classList.add('hidden');
+
+            try {
+                const response = await fetch('contacto.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                
+                formMessage.classList.remove('hidden');
+                
+                if (result.success) {
+                    formMessage.className = 'p-3 rounded-md bg-green-100 text-green-800';
+                    formMessage.textContent = '¡Gracias! Tu mensaje ha sido enviado correctamente.';
+                    contactForm.reset();
+                } else {
+                    formMessage.className = 'p-3 rounded-md bg-red-100 text-red-800';
+                    formMessage.textContent = result.message || 'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.';
+                }
+            } catch (error) {
+                formMessage.classList.remove('hidden');
+                formMessage.className = 'p-3 rounded-md bg-red-100 text-red-800';
+                formMessage.textContent = 'Error de conexión. Por favor, intenta nuevamente más tarde.';
+            } finally {
+                submitBtn.disabled = false;
+                submitText.textContent = 'Enviar mensaje';
+            }
+        });
+    </script>
+</body>
+
+</html>

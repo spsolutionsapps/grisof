@@ -1,0 +1,106 @@
+═══════════════════════════════════════════════════════════════
+  PASOS PARA PROBAR EL SITIO LOCALMENTE - PASO A PASO
+═══════════════════════════════════════════════════════════════
+
+✅ PASO 1: CREAR LA BASE DE DATOS EN PHPMYADMIN
+───────────────────────────────────────────────────
+
+1. Abre tu navegador
+2. Ve a: http://localhost/phpmyadmin
+3. En el menú izquierdo, haz clic en "Nueva" o "New"
+4. En "Nombre de la base de datos", escribe: grisof_consultas
+5. Haz clic en "Crear" o "Create"
+6. ✅ Deberías ver la base de datos en el menú izquierdo
+
+✅ PASO 2: CREAR LA TABLA
+───────────────────────────
+
+1. En phpMyAdmin, haz clic en la base de datos "grisof_consultas" (menú izquierdo)
+2. Arriba, haz clic en la pestaña "SQL"
+3. Abre el archivo "deploy/database.sql" con Notepad
+4. Copia TODO el contenido del archivo (Ctrl+A, Ctrl+C)
+5. Pega el contenido en el cuadro de texto de phpMyAdmin (Ctrl+V)
+6. Haz clic en el botón "Continuar" o "Go" (abajo a la derecha)
+7. ✅ Deberías ver: "La consulta se ejecutó correctamente"
+8. Verifica: En el menú izquierdo, dentro de "grisof_consultas", deberías ver la tabla "consultas"
+
+✅ PASO 3: CONFIGURAR config.php PARA LOCAL
+──────────────────────────────────────────────
+
+1. Abre el archivo: deploy/config.php
+2. Cámbialo para que quede así:
+
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'grisof_consultas');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+
+3. Guarda el archivo (Ctrl+S)
+
+✅ PASO 4: COPIAR ARCHIVOS A XAMPP
+────────────────────────────────────
+
+1. Abre la carpeta: C:\xampp\htdocs\
+2. Crea una carpeta nueva llamada: grisof
+   (Click derecho → Nuevo → Carpeta → nombre: grisof)
+3. Abre la carpeta "grisof" que acabas de crear
+4. Copia TODOS los archivos de tu carpeta "deploy" a C:\xampp\htdocs\grisof\
+   - Selecciona todos los archivos de "deploy" (Ctrl+A)
+   - Córtalos (Ctrl+X)
+   - Pégalos en C:\xampp\htdocs\grisof\ (Ctrl+V)
+
+   Deberías tener:
+   C:\xampp\htdocs\grisof\
+   ├── index.html
+   ├── contacto.php
+   ├── config.php
+   ├── favicon.ico
+   ├── assets/
+   └── admin/
+
+✅ PASO 5: PROBAR EL SITIO
+────────────────────────────
+
+1. Abre tu navegador
+2. Ve a: http://localhost/grisof/
+3. ✅ Deberías ver tu sitio web completo
+
+✅ PASO 6: PROBAR EL FORMULARIO
+─────────────────────────────────
+
+1. En el sitio, baja hasta el formulario de contacto (al final)
+2. Llena el formulario:
+   - Nombre: Tu nombre
+   - Email: tu@email.com
+   - Teléfono: (opcional)
+   - Mensaje: Este es un mensaje de prueba
+3. Haz clic en "Enviar mensaje"
+4. ✅ Deberías ver un mensaje verde: "¡Gracias! Tu mensaje ha sido enviado correctamente"
+
+✅ PASO 7: VERIFICAR QUE SE GUARDÓ
+────────────────────────────────────
+
+1. Ve a: http://localhost/phpmyadmin
+2. En el menú izquierdo, haz clic en "grisof_consultas"
+3. Haz clic en la tabla "consultas"
+4. ✅ Deberías ver tu consulta guardada con todos los datos
+
+✅ PASO 8: PROBAR EL PANEL DE ADMINISTRACIÓN
+──────────────────────────────────────────────
+
+1. Ve a: http://localhost/grisof/admin/
+2. Verás una página de login
+3. Ingresa:
+   - Usuario: admin
+   - Contraseña: admin123
+4. Haz clic en "Iniciar Sesión"
+5. ✅ Deberías ver el panel con tu consulta
+6. Prueba:
+   - Haz clic en "Ver" para ver los detalles
+   - Haz clic en "Marcar leída"
+   - Haz clic en "Eliminar" (te pedirá confirmación)
+
+═══════════════════════════════════════════════════════════════
+  ¡LISTO! Si todo funciona, tu sitio está listo para subir
+═══════════════════════════════════════════════════════════════
+
